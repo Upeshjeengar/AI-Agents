@@ -1,0 +1,4 @@
+phi
+dotenv
+groq
+yfinance
