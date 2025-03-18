@@ -2,3 +2,5 @@ phi
 dotenv
 groq
 yfinance
+duckduckgo-search
+openai
