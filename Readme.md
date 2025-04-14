@@ -6,7 +6,7 @@ This project demonstrates the implementation of AI agents using the Phi library 
 ## Single Finance Agent
 This implementation uses Groq's LLM to analyze financial data using YFinance tools.
 
-![Single Finance Agent Architecture](Picture1.png) 
+![Single Finance Agent Architecture](img/Picture1.png) 
 
 ### Features
 - Stock price analysis
@@ -17,7 +17,7 @@ This implementation uses Groq's LLM to analyze financial data using YFinance too
 ## Finance Agent Team
 An advanced implementation that combines multiple agents for comprehensive analysis.
 
-![Finance Agent Team Architecture](Picture2.png)
+![Finance Agent Team Architecture](img/Picture2.png)
 
 ### Features
 - Web Agent for internet searches using DuckDuckGo
