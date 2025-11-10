@@ -5,20 +5,20 @@ root_agent = Agent(
     model="gemini-2.5-flash-lite",
     description="A simple agent that can answer general questions.",
     instruction="You are a helpful assistant. Use Google Search for current info or if unsure.",
-    tools=[google_search],
+    tools=[google_search], #ollama models doesn't support google_search tool
 )
 '''
 import datetime
 from zoneinfo import ZoneInfo
 from google.adk.agents import Agent
-import os
 from google.adk.models.lite_llm import LiteLlm
 from ddgs import DDGS
+# import os
 # from dotenv import load_dotenv
 # load_dotenv()
 # OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-def google_search(query: str) -> dict:
+def web_search(query: str) -> dict:
     """Performs a Google search for the given query and returns the top result.
 
     Args:
@@ -106,13 +106,13 @@ root_agent = Agent(
     ),
     instruction=(
         "You are a helpful agent. You must follow these rules strictly:\n"
-        "1. For any user question about general knowledge, facts, current events, or any topic that is not about time or weather, use the `Google Search` tool.\n"
+        "1. For any user question about general knowledge, facts, current events, or any topic that is not about time or weather, use the `web Search` tool.\n"
         "2. For user questions specifically about the weather in a city, you MUST use the `get_weather` tool.\n"
         "3. For user questions specifically about the current time in a city, you MUST use the `get_current_time` tool.\n"
-        "4. If 'get_weather' or 'get_current_time' tool returned an error message about the requested city, then you must use 'google_search' tool"
+        "4. If 'get_weather' or 'get_current_time' tool returned an error message about the requested city, then you must use 'web_search' tool"
         "5. If a tool returns an error, apologize and report the error message to the user."
     ),
-    tools=[get_weather, get_current_time,google_search],
+    tools=[get_weather, get_current_time,web_search],
 
     max_iterations=3,
 )
