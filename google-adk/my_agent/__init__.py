@@ -109,10 +109,8 @@ root_agent = Agent(
         "1. For any user question about general knowledge, facts, current events, or any topic that is not about time or weather, use the `web Search` tool.\n"
         "2. For user questions specifically about the weather in a city, you MUST use the `get_weather` tool.\n"
         "3. For user questions specifically about the current time in a city, you MUST use the `get_current_time` tool.\n"
-        "4. If 'get_weather' or 'get_current_time' tool returned an error message about the requested city, then you must use 'web_search' tool"
+        "4. If in last chat, 'get_weather' or 'get_current_time' tool returned an error message about the requested city, then you must use 'web_search' in current chat"
         "5. If a tool returns an error, apologize and report the error message to the user."
     ),
     tools=[get_weather, get_current_time,web_search],
-
-    max_iterations=3,
 )
